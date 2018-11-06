@@ -17,7 +17,7 @@ POST /users/newUser
 ````
 GET /users/{userId}
 ````
-*Delete a user:
+* Delete a user:
 ````
 DELETE /users/{userId}
 ````
