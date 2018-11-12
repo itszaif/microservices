@@ -3,7 +3,7 @@ package com.itszaif.spring.microservices.models;
 import java.util.Date;
 
 /**
- * TODO JavaDoc
+ * User class
  *
  * @author <a href="mailto:zafrullahmehdi@gmail.com">Zafrullah Syed</a>
  * @since 12.11.2018
