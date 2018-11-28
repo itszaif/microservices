@@ -1,5 +1,6 @@
 package com.itszaif.spring.microservices.controllers;
 
+import com.itszaif.spring.microservices.exceptions.UserNotFoundException;
 import com.itszaif.spring.microservices.models.User;
 import com.itszaif.spring.microservices.service.UserDaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,12 @@ public class UserResource
     @GetMapping("/users/{id}")
     public User retrieveUser(@PathVariable int id)
     {
-        return service.findOne(id);
+        User user = service.findOne(id);
+        if(user == null)
+        {
+            throw new UserNotFoundException("id: " + id);
+        }
+        return user;
     }
 
     // input - details of user
@@ -46,5 +52,4 @@ public class UserResource
                                              .buildAndExpand(savedUser.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
-
 }
