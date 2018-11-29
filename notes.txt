@@ -1,0 +1,11 @@
+##### Internationalization
+
+##### Configuration
+-LocaleResolver
+  - Default Locale - Locale.US
+
+
+##### Usage
+- Autowire MessageSource
+- @RequestHeader(value = "Accept-language", requred = false) Locale locale
+- messageSource.getMessage("helloWorld.message", null, locale)
