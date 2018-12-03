@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -31,9 +32,9 @@ public class UserResource
     private UserDaoService service;
 
     @GetMapping("/users")
-    public ResponseEntity getAllUsers()
+    public ResponseEntity<List<User>> getAllUsers()
     {
-        return new ResponseEntity(service.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
     //Get /Users/{id}
